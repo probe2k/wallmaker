@@ -8,11 +8,14 @@ class WallHome extends StatefulWidget {
 class _WallHomeState extends State<WallHome> {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'WallMaker',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+            color: Colors.red,
+          ),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0.0,
@@ -27,17 +30,26 @@ class _WallHomeState extends State<WallHome> {
             fit: BoxFit.cover,
           ),
         ),
-        child: SafeArea(
-            child: Center(
-          child: Container(
-            width: 300,
-            height: 300,
-            decoration: BoxDecoration(
-              color: Colors.green,
+        padding: const EdgeInsets.only(top: 40),
+        child: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Search',
+                    ),
+                  ),
+                ),
+                Icon(
+                  Icons.search,
+                ),
+              ],
             ),
-            child: Center(child: Text('Test')),
-          ),
-        )),
+          ],
+        ),
       ),
     );
   }
