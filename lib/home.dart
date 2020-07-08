@@ -57,8 +57,31 @@ class _WallHomeState extends State<WallHome> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 16.0,
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Builders extends StatelessWidget {
+  final String img, caption;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Stack(
+        children: [
+          Container(
+            child: Image.network(img),
+          ),
+          Container(
+            child: Text(caption),
+          ),
+        ],
       ),
     );
   }
