@@ -30,23 +30,32 @@ class _WallHomeState extends State<WallHome> {
             fit: BoxFit.cover,
           ),
         ),
-        padding: const EdgeInsets.only(top: 40),
+        padding: const EdgeInsets.only(top: 60),
         child: Column(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Search',
+            Container(
+              decoration: BoxDecoration(
+                color: Color(0xfff5f8fd).withOpacity(0.8),
+                borderRadius: BorderRadius.circular(24),
+              ),
+              padding: EdgeInsets.only(left: 20, right: 20),
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Expanded(
+                    child: TextField(
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: 'Search',
+                      ),
                     ),
                   ),
-                ),
-                Icon(
-                  Icons.search,
-                ),
-              ],
+                  Icon(
+                    Icons.search,
+                  ),
+                ],
+              ),
             ),
           ],
         ),
