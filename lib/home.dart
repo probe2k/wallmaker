@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallmaker/model/cat_model.dart';
 
 class WallHome extends StatefulWidget {
   @override
@@ -59,6 +60,14 @@ class _WallHomeState extends State<WallHome> {
             ),
             SizedBox(
               height: 16.0,
+            ),
+            Container(
+              child: ListView.builder(
+                itemCount: fetchData().length,
+                itemBuilder: (context, i) => new Row(
+                  
+                ),
+              ),
             ),
           ],
         ),
