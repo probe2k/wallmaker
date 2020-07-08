@@ -7,6 +7,14 @@ class WallHome extends StatefulWidget {
 }
 
 class _WallHomeState extends State<WallHome> {
+  List<Categories> data = List();
+
+  @override
+  void initState() {
+    data = fetchData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,11 +70,18 @@ class _WallHomeState extends State<WallHome> {
               height: 16.0,
             ),
             Container(
+              height: 200,
               child: ListView.builder(
-                itemCount: fetchData().length,
-                itemBuilder: (context, i) => new Row(
-                  
-                ),
+                padding: const EdgeInsets.all(20),
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: data.length,
+                itemBuilder: (context, i) {
+                  return Builders(
+                    caption: data[i].catName,
+                    imgUrl: data[i].imgUrl,
+                  );
+                },
               ),
             ),
           ],
@@ -77,15 +92,23 @@ class _WallHomeState extends State<WallHome> {
 }
 
 class Builders extends StatelessWidget {
-  final String img, caption;
+  final String imgUrl, caption;
+  Builders({@required this.imgUrl, @required this.caption});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(right: 8),
       child: Stack(
         children: [
-          Container(
-            child: Image.network(img),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(
+              imgUrl,
+              height: 50,
+              width: 100,
+              fit: BoxFit.cover,
+            ),
           ),
           Container(
             child: Text(caption),
