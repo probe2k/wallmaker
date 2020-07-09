@@ -14,7 +14,11 @@ class _WallHomeState extends State<WallHome> {
     var response =
         await http.get(apiUrl, headers: {"Authorization": loadAsset()});
 
-    Map<String, dynamic> value = json.decode(response.body);
+    Map<String, dynamic> holder = jsonDecode(response.body);
+
+    holder["photos"].forEach((iteration) {
+      print(iteration);
+    });
   }
 
   List<Categories> data = List();
