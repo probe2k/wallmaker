@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'package:wallmaker/getter.dart';
 import 'package:wallmaker/model/cat_model.dart';
 
@@ -13,7 +14,7 @@ class _WallHomeState extends State<WallHome> {
     var response =
         await http.get(apiUrl, headers: {"Authorization": loadAsset()});
 
-    print(response.body.toString());
+    Map<String, dynamic> value = json.decode(response.body);
   }
 
   List<Categories> data = List();
