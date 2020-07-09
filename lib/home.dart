@@ -111,7 +111,18 @@ class Builders extends StatelessWidget {
             ),
           ),
           Container(
-            child: Text(caption),
+            height: 50,
+            width: 100,
+            color: Colors.black12,
+            alignment: Alignment.center,
+            child: Text(
+              caption,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+                fontSize: 16,
+              ),
+            ),
           ),
         ],
       ),
