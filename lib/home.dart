@@ -1,3 +1,4 @@
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:wallmaker/model/cat_model.dart';
 
@@ -7,7 +8,14 @@ class WallHome extends StatefulWidget {
 }
 
 class _WallHomeState extends State<WallHome> {
+  fetchLatest() {
+    var response=http.get(apiUrl, headers: {
+      "Authorization : "
+    });
+  }
+
   List<Categories> data = List();
+  String apiUrl="https://api.pexels.com/v1/curated?per_page=1";
 
   @override
   void initState() {
