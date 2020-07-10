@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:wallmaker/getter.dart';
 import 'package:wallmaker/model/cat_model.dart';
+import 'package:wallmaker/model/data_model.dart';
 
 class WallHome extends StatefulWidget {
   @override
@@ -17,10 +18,18 @@ class _WallHomeState extends State<WallHome> {
     Map<String, dynamic> holder = jsonDecode(response.body);
 
     holder["photos"].forEach((iteration) {
+      DataModel walls = DataModel();
+      walls = DataModel.fromMap(iteration);
+      lst.add(walls);
+    });
+
+    setState(() {
+      
     });
   }
 
   List<Categories> data = List();
+  List<DataModel> lst = new List();
   String apiUrl = "https://api.pexels.com/v1/curated?per_page=1";
 
   @override
