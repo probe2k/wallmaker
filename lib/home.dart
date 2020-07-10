@@ -17,7 +17,6 @@ class _WallHomeState extends State<WallHome> {
     Map<String, dynamic> holder = jsonDecode(response.body);
 
     holder["photos"].forEach((iteration) {
-      print(iteration);
     });
   }
 
@@ -35,7 +34,6 @@ class _WallHomeState extends State<WallHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
         title: Text(
           'WallMaker',
           style: TextStyle(
@@ -55,7 +53,7 @@ class _WallHomeState extends State<WallHome> {
             fit: BoxFit.cover,
           ),
         ),
-        padding: const EdgeInsets.only(top: 60),
+        padding: const EdgeInsets.only(top: 80),
         child: Column(
           children: <Widget>[
             Container(
@@ -83,7 +81,7 @@ class _WallHomeState extends State<WallHome> {
               ),
             ),
             SizedBox(
-              height: 16.0,
+              height: 10.0,
             ),
             Container(
               height: 200,
