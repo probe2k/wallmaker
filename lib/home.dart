@@ -1,6 +1,7 @@
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'package:wallmaker/widget/listings.dart';
 import 'package:wallmaker/getter.dart';
 import 'package:wallmaker/model/cat_model.dart';
 import 'package:wallmaker/model/data_model.dart';
@@ -14,6 +15,7 @@ class _WallHomeState extends State<WallHome> {
   fetchLatest() async {
     var response =
         await http.get(apiUrl, headers: {"Authorization": loadAsset()});
+    print(response.body.toString());
 
     Map<String, dynamic> holder = jsonDecode(response.body);
 
@@ -23,9 +25,7 @@ class _WallHomeState extends State<WallHome> {
       lst.add(walls);
     });
 
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   List<Categories> data = List();
@@ -89,11 +89,8 @@ class _WallHomeState extends State<WallHome> {
                 ],
               ),
             ),
-            SizedBox(
-              height: 10.0,
-            ),
             Container(
-              height: 200,
+              height: 100,
               child: ListView.builder(
                 padding: const EdgeInsets.all(20),
                 shrinkWrap: true,
@@ -107,6 +104,10 @@ class _WallHomeState extends State<WallHome> {
                 },
               ),
             ),
+            SizedBox(
+              height: 10.0,
+            ),
+            listings(lst, context),
           ],
         ),
       ),
@@ -116,6 +117,7 @@ class _WallHomeState extends State<WallHome> {
 
 class Builders extends StatelessWidget {
   final String imgUrl, caption;
+
   Builders({@required this.imgUrl, @required this.caption});
 
   @override
@@ -136,7 +138,10 @@ class Builders extends StatelessWidget {
           Container(
             height: 50,
             width: 100,
-            color: Colors.black12,
+            decoration: BoxDecoration(
+              color: Colors.black12,
+              borderRadius: BorderRadius.circular(6),
+            ),
             alignment: Alignment.center,
             child: Text(
               caption,
