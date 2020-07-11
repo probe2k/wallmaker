@@ -1,5 +1,5 @@
 import 'dart:convert';
 
 String loadAsset() {
-  return json.decode('key.json')['api_key'].toString();
+  return jsonDecode("key.json")["api_key"].toString();
 }
