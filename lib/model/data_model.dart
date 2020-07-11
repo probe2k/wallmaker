@@ -9,10 +9,9 @@ class DataModel {
 
   factory DataModel.fromMap(Map<String, dynamic> jsonData) {
     return DataModel(
-      model: jsonData["model"],
-      ref: jsonData["photographer_url"],
-      id: jsonData["photographer_id"],
-      name: jsonData["photographer"]
-    );
+        model: jsonData["model"],
+        ref: jsonData["photographer_url"],
+        id: jsonData["photographer_id"],
+        name: jsonData["photographer"]);
   }
 }
