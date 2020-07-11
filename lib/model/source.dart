@@ -5,9 +5,8 @@ class Required {
 
   factory Required.fromMap(Map<String, dynamic> jsonData) {
     return Required(
-      req: jsonData["portrait"],
-      og: jsonData["original"],
-      thumb: jsonData["small"]
-    );
+        req: jsonData["portrait"],
+        og: jsonData["original"],
+        thumb: jsonData["small"]);
   }
 }
